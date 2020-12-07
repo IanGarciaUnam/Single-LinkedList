@@ -1,121 +1,70 @@
-
-#include <stdio.h>
+#include "LinkedList.h"
 #include <stdlib.h>
 
 
 
-
-struct Nodo;
-
-
-
-typedef struct Nodo{
-	int *data;
-	struct Nodo* next;
-
-}Nodo;
-
-typedef struct LinkedList{
-	struct Nodo* cabeza;
-	struct Nodo* cola;
-	int *tamano;
-}Lista;
-
-void inicializacion(Lista *lista);
-int insertar_al_inicio(Lista *lista, int *data);
-int elimina_primero(Lista *lista);
-void imprime_lista(Lista *lista);
-
-
-
-
-int main(){
-
-	Lista* l = (struct LinkedList*)malloc(sizeof( struct LinkedList));
-	int *c ;
-	int a=120;
-	c= &a;
-
-	inicializacion(l);
-	insertar_al_inicio(l,c);
-	int v=1223;
-	c= &v;
-	insertar_al_inicio(l,c);
-	int x=233;
-	c= &x;
-	insertar_al_inicio(l,c);
-
-	/*To see data value 
-	printf("%i", *l->cabeza->data );
-	*/
-	/**printf("%i\n", *l->cabeza->data );
-	printf("%i\n", *l->cola->data );**/
-	imprime_lista(l);
-	printf("\nBienaventurados los hombres de buena fe\n");
-
-
+Nodo* crearNodo(int *data){
+	Nodo* nodo= (Nodo*)malloc(sizeof(Nodo));
+	nodo->data= *data;	
+	nodo->next=NULL;
+	return nodo;
 }
 
-
-void inicializacion(Lista *lista){
-	lista->cabeza = (struct Nodo*)malloc(sizeof( struct Nodo));
-	lista->cola = (struct Nodo*)malloc(sizeof( struct Nodo));
-	lista->tamano =0;
+void destruirNodo(Nodo *nodo){
+	free(nodo);
 }
 
-int insertar_al_inicio(Lista *lista, int *numero){
-	if(lista->tamano==0){
-		lista->cabeza->data=numero;
-		lista->cola=lista->cabeza;
-		lista->tamano++;
-		return 0;
+void insertar_al_inicio(Lista * lista, int* data){
+	Nodo* nodo= crearNodo(data);
+	nodo->next= lista->cabeza;
+	lista->cabeza=nodo;	
+	lista->longitud++;
+}
+
+void limpiar(Lista* lista){
+	while(lista->longitud>0){
+		eliminarPrimero(lista);
 	}
 
-	Nodo n;
-	n.data=numero;
-	n.next=lista->cabeza;
-	lista->cabeza= &n;
-	lista->tamano++;
-	return 0;
-
 }
+void imprime(Lista* lista){
 
-int elimina_primero(Lista *lista){
-
-if(*lista->tamano == 1){
-	inicializacion(lista);
-	return 0;
-}
-
-lista->cabeza=lista->cabeza->next;
-return 0;
-
-}
-
-void imprime_lista(Lista *lista){
-
-	Nodo *head= lista->cabeza;
-
-	int tamano=*lista->tamano;
-	int arr [tamano];
-	int counter=0;
-	while( head != NULL){
-
-		arr[counter]= *head->data;
-			counter++;
-
-		head= head->next;
-	
+Nodo *eye;
+	if(lista->cabeza==NULL){
+		printf("[]");
+		return;
 	}
 
+	eye=lista->cabeza;
 
 	printf("[");
-	for(int i=0; i< tamano ; i++){
-	printf("%i ,",arr[i]);
+	while(eye != NULL){
+		printf("%i, ", eye->data);
+		eye=eye->next;
 
 	}
-
-
 	printf("]");
 
+
 }
+
+int getLongitud(Lista* l){
+	return l->longitud;
+}
+
+int esVacia(Lista* l){
+	return l->cabeza==NULL;
+}
+
+
+void eliminarPrimero(Lista* l){
+
+
+	if(l->cabeza){
+		Nodo* eli= l->cabeza;
+		l->cabeza= l->cabeza->next;
+		destruirNodo(eli);
+		l->longitud--;
+	}	
+}
+
