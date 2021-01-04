@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 
-
+/**
+*Crea la referencia a un nodo
+*
+*/
 Nodo* crearNodo(int *data){
 	Nodo* nodo= (Nodo*)malloc(sizeof(Nodo));
 	nodo->data= *data;	
@@ -10,9 +13,20 @@ Nodo* crearNodo(int *data){
 	return nodo;
 }
 
+
+/**
+*Libera el espacio ocupado por un nodo
+*
+*/
 void destruirNodo(Nodo *nodo){
 	free(nodo);
 }
+
+
+/**
+*Inserta los números al inicio de una lista L
+*
+*/
 
 void insertar_al_inicio(Lista * lista, int* data){
 	Nodo* nodo= crearNodo(data);
@@ -21,19 +35,24 @@ void insertar_al_inicio(Lista * lista, int* data){
 	lista->longitud++;
 }
 
-<<<<<<< HEAD
 
-
+/**
+*Limpia la lista hasta dejarla vacía
+*
+*/
 void limpiar(Lista* lista){
 	while(!esVacia(lista)){//lista->longitud>0){
-=======
-void limpiar(Lista* lista){
-	while(lista->longitud>0){
->>>>>>> 3702883c33f51bcaed428c55d72fcd6e1605f9fd
 		eliminarPrimero(lista);
 	}
 
 }
+
+/**
+*Imprime la lista L
+*
+*
+*
+*/
 void imprime(Lista* lista){
 
 Nodo *eye;
@@ -55,18 +74,28 @@ Nodo *eye;
 
 }
 
+/**
+*Devuelve la longitud de la lista L
+*return (int) longitud de la lista
+*/
 int getLongitud(Lista* l){
 	return l->longitud;
 }
 
+/**
+*Notifica si la lista es Vacia
+	return 1 TRUE
+*
+*/
 int esVacia(Lista* l){
 	return l->cabeza==NULL;
 }
 
-
+/**
+*Elimina el primer elemento  de la lista
+@param Lista*(puntero) l
+*/
 void eliminarPrimero(Lista* l){
-
-
 	if(l->cabeza){
 		Nodo* eli= l->cabeza;
 		l->cabeza= l->cabeza->next;
@@ -75,25 +104,6 @@ void eliminarPrimero(Lista* l){
 	}	
 }
 
-<<<<<<< HEAD
-void agrega_al_inicio(Lista* lista, Nodo* n){
-	n->next=NULL;
-	Nodo* nodo= n;
-	nodo->next= lista->cabeza;
-	lista->cabeza=nodo;
-	lista->longitud++;
-}
 
-void reversa(Lista* l, Lista* salida){
 
-	Nodo* prev= l->cabeza;
 
-	while(prev != NULL){
-		agrega_al_inicio(salida, prev);
-		prev= prev->next;
-	}
-
-}
-
-=======
->>>>>>> 3702883c33f51bcaed428c55d72fcd6e1605f9fd

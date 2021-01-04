@@ -3,13 +3,15 @@
 #include "LinkedList.c"
 
 
-
+/***
+*Prueba la ejección y utilización de una LinkedList
+*
+*/
 int main(){
 
-<<<<<<< HEAD
 	Lista* original =(Lista*) malloc(sizeof(Lista));
 	int prueba=0;
-	int veces= rand()%11+20;
+	int veces= rand()%11+1000;
 	printf("Insertando %d de elementos a la lista\n\n", veces+1);
 
 	for(int i=0; i<=veces; i++){
@@ -53,64 +55,7 @@ int main(){
 	printf("\n====Passed %d de 4 tests============\n", prueba);
 
 
-	for(int i=0; i<=veces; i++){
-		int x=rand()%11 +100;
-		insertar_al_inicio(original,&x);
-
-	}
-
-	imprime(original);
-	Lista* salida = (Lista*) malloc(sizeof(Lista));
-	reversa(original, salida);
-	imprime(salida);
-
-
 	return 0;
 	}
 
 
-=======
-	Lista* c =(Lista*) malloc(sizeof(Lista));
-
-	int veces= rand()%11+100000;
-	printf("Insertando %i de elementos a la lista\n\n", &veces);
-
-	for(int i=0; i<=veces; i++){
-
-	int x=rand()%11 +100;
-	insertar_al_inicio(c,&x);
-	}
-
-	printf("Longitud de la Lista: %i \n", getLongitud(c));
-	imprime(c);
-
-
-	int eliminables = rand()%12+veces;
-	printf("Eliminando %i elementos\n", eliminables);
-
-	for(int i=0; i<eliminables; i++){
-
-		eliminarPrimero(c);
-
-	}
-
-
-	imprime(c);
-
-
-
-	printf("Lista con %i elementos\n",getLongitud(c));
-
-	printf("Limpiar lista\n");
-
-	limpiar(c);
-
-	printf("Lista con %i elementos\n",getLongitud(c));
-
-
-
-
-
-
-}
->>>>>>> 3702883c33f51bcaed428c55d72fcd6e1605f9fd

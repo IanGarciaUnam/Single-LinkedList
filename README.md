@@ -1,14 +1,14 @@
 # Single-LinkedList in C language
-Ian Israel García Vázquez - 317097364
 
+Escrito por: Ian Israel García Vázquez
+No. de cuenta : 31709736
 
-Para compilar:
-
+Para compilar
 ```
-gcc LinkedList.c -o LinkedList
+gcc Main.c -o Main
 ```
 
-Para ejecutar:
+Para ejecutar 
 ```
-./LinkedList
+./Main
 ```
