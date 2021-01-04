@@ -21,10 +21,15 @@ void insertar_al_inicio(Lista * lista, int* data){
 	lista->longitud++;
 }
 
+<<<<<<< HEAD
 
 
 void limpiar(Lista* lista){
 	while(!esVacia(lista)){//lista->longitud>0){
+=======
+void limpiar(Lista* lista){
+	while(lista->longitud>0){
+>>>>>>> 3702883c33f51bcaed428c55d72fcd6e1605f9fd
 		eliminarPrimero(lista);
 	}
 
@@ -70,6 +75,7 @@ void eliminarPrimero(Lista* l){
 	}	
 }
 
+<<<<<<< HEAD
 void agrega_al_inicio(Lista* lista, Nodo* n){
 	n->next=NULL;
 	Nodo* nodo= n;
@@ -89,3 +95,5 @@ void reversa(Lista* l, Lista* salida){
 
 }
 
+=======
+>>>>>>> 3702883c33f51bcaed428c55d72fcd6e1605f9fd
