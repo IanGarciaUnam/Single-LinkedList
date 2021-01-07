@@ -12,3 +12,4 @@ Para ejecutar
 ```
 ./Main
 ```
+Tras ejecutarlo, desplegará en pantalla las pruebas unitarias que se estarán ejecutando
