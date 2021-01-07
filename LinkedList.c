@@ -84,7 +84,8 @@ int getLongitud(Lista* l){
 
 /**
 *Notifica si la lista es Vacia
-	return 1 TRUE
+	return 1 TRUE  
+	return 0 FALSE
 *
 */
 int esVacia(Lista* l){
@@ -102,6 +103,42 @@ void eliminarPrimero(Lista* l){
 		destruirNodo(eli);
 		l->longitud--;
 	}	
+}
+
+
+	/**
+	*Modifica la lista para volver en reversa
+	*WARNING:método destructivo, trabaja inSITU
+	*
+	*NOTA: En realidad he decidido agregar este método pués lo aprendí
+	*mientras me preparaba para una entrevista para Facebook,
+	*No me quede en el Internship, pero tengo que decir que
+	*me fascino aprender como aplicar reversa a una lista simplemente ligada
+	*y también me ha dejado ver como es que quizá alguno de los pilares 
+	*de las Ciencias de la computación logró vislumbrar la Programación Orientada a Objetos
+	*P.D-Espero no molestar mucho con esta nota
+	*
+	*@param l Lista*
+	*/
+void reversa(Lista* l){
+	if(esVacia(l))return;
+
+
+	Nodo* prev;
+	Nodo* current= l->cabeza;
+	Nodo* siguiente;
+
+	while(current != NULL){
+		siguiente=current->next;
+		current->next=prev;
+		prev=current;
+		current=siguiente;
+	}
+
+	l->cabeza=prev;
+
+
+
 }
 
 

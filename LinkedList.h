@@ -22,4 +22,5 @@ void insertar_al_inicio(Lista * lista, int* data);
 void imprime(Lista* lista);
 int esVacia(Lista* l);
 void eliminarPrimero(Lista* l);
+void reversa(Lista* l);
 #endif /*LinkedList.h*/

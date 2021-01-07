@@ -5,13 +5,19 @@
 
 /***
 *Prueba la ejección y utilización de una LinkedList
-*
+*Referente a los siguientes métodos:
+* -insertar_al_inicio(Lista* l)
+*	-getLongitud(Lista* l)
+*	-imprime(Lista* l)
+* 	-esVacia(LIsta* l)
+* 	-eliminaPrimero(Lista* l)
+* 	-reversa(Lista* l)
 */
 int main(){
 
 	Lista* original =(Lista*) malloc(sizeof(Lista));
 	int prueba=0;
-	int veces= rand()%11+1000;
+	int veces= rand()%11+10;
 	printf("Insertando %d de elementos a la lista\n\n", veces+1);
 
 	for(int i=0; i<=veces; i++){
@@ -24,35 +30,57 @@ int main(){
 
 	////Prueba de longitud
 	if(getLongitud(original)==veces+1){
-		printf("\nPrueba de longitud e inserción [1]\n");
+
 		prueba+=2;
-	}else{
-		printf("\nPrueba de longitud [0]\n");
 	}
-
-	
-
-
+	printf("\nPrueba de longitud e inserción [%d]\n",getLongitud(original)==veces+1);
 
 	imprime(original);
 	limpiar(original);
 	if(getLongitud(original)== 0){
-		printf("\nPrueba de limpia [1]\n");
 		prueba+=1;
-	}else{
-		printf("\nPrueba de limpia [0]\n");
 	}
+	printf("\nPrueba de limpia [%d]\n", getLongitud(original)==0);
 	imprime(original);
 	printf("\n");
 
 	if(esVacia(original)){
 		prueba+=1;
-		printf("\nPrueba de vacío [1]\n");
-	}else{
-		printf("Prueba de vacío [0]\n");
+	}
+		printf("\nPrueba de vacío [%d]\n",esVacia(original));
+
+		reversa(original);
+		printf("\nPrueba de reversa -vacía [%d]\n", original->cabeza==NULL);
+	if(original->cabeza==NULL){
+		prueba+=1;
 	}
 
-	printf("\n====Passed %d de 4 tests============\n", prueba);
+	int times=rand()%100;
+	for(int i=0; i<=times; i++){
+		int x=rand()%11 +100;
+		insertar_al_inicio(original,&x);
+
+	}
+
+			int tamanoInicio=getLongitud(original);
+	printf("Original:\n");
+	imprime(original);
+
+	reversa(original);
+	printf("\n");
+	printf("Reversa: \n");
+	imprime(original);
+	int tamanoFinal=getLongitud(original);
+
+		printf("\nPrueba de reversa [%d]\n",tamanoFinal==tamanoInicio);
+
+	if(tamanoInicio==tamanoFinal){
+		prueba+=1;
+	}
+
+	printf("\n====Passed %d de 6 tests============\n", prueba);
+
+
 
 
 	return 0;
